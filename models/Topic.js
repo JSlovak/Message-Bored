@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         Topic.belongsTo(models.User, {
-          As: 'Creator',
+          as: 'Creator',
           foreignKey:{
             name: "created_by",
             allowNull: false
