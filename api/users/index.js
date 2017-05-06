@@ -29,9 +29,13 @@ users.post('/', (req, res) => {
 });
 
 users.get('/:id',(req, res) => {
-  User.create( req.body )
-    .then( res.json.bind(res) )
-    .catch( res.json.bind(res) );
+  User.findById( req.params.id )
+    .then(user =>{
+      res.json(user);
+    })
+    .catch(err => {
+      res.json(err);
+    });
 });
 
 module.exports = users;
